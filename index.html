@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script>
+    function busca() {
+      const filtro = document.getElementById("filtro").value.toLowerCase();
+      const lista = document.getElementsByTagName("li");
+
+      for (li of lista) {
+        if (li.innerText.toLowerCase().includes(filtro)) {
+          li.style.opacity = "1"
+        }
+        else {
+          li.style.opacity = "0.3"
+        }
+      }
+    }
+    function tabuada() {
+      const fator = document.getElementById("fator").value;
+      const produto = document.getElementById("produto");
+      let valores = [];
+      for (index = 1; index <= 10; index++) {
+        valores.push(`${fator} x ${index} = ${fator * index}`);
+      }
+      produto.innerHTML = valores.join(`<br>`)
+      if (fator == "") {
+        produto.innerHTML = "";
+      }
+    }
+  </script>
+  <style>
+    * {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body{
+      background-image: url(neymar-brazil-2022-1668947300-97010.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: #274360;
+    }
+
+    .title {
+      user-select: none;
+      font-size: 30px;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      font-size: 20px;
+    }
+
+    #pesquisaNome {
+      margin-top: 50px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 1000px;
+      margin: auto;
+    }
+
+    #pesquisaNome input {
+      margin: 40px;
+    }
+
+    #pesquisaNome ul {
+      height: 400px;
+      overflow: hidden;
+    }
+
+    #pesquisaNome li {
+      margin: 5px;
+    }
+
+    #tabuada {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 200px;
+    }
+
+    #tabuada div {
+      margin-top: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="title">
+    <h1>Lista de Nomes da Festa do Neymar</h1>
+  </div>
+  <div id="pesquisaNome">
+    <form action="">
+      <input type="text" placeholder="Busque Um Nome:" id="filtro" oninput="busca()" />
+    </form>
+    <ul>
+      <li>Rafael</li>
+      <li>Giselle</li>
+      <li>Danilo</li>
+      <li>Jessica</li>
+      <li>José Luís</li>
+      <li>Natália</li>
+      <li>Ricardo</li>
+      <li>Carolina</li>
+      <li>Gabriel</li>
+      <li>Fátima</li>
+      <li>Gilberto</li>
+    </ul>
+  </div>
+  <div class="title">
+    <h1>Tabuada do Neymar</h1>
+  </div>
+  <div id="tabuada">
+    <div>
+      <input type="number" id="fator" placeholder="Indique Um Valor:" oninput="tabuada()" />
+    </div>
+    <div id="produto"></div>
+  </div>
+</body>
+
+</html>
